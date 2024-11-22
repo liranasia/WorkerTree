@@ -11,6 +11,13 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@emotion/react": "11.13.3",
+    "@emotion/styled": "11.13.0",
+    "@juxio/cli": "^0.8.0",
+    "@juxio/css": "^0.8.0",
+    "@juxio/postcss": "^0.8.0",
+    "@juxio/react-styled": "^0.8.0",
+    "@mui/material": "6.1.6",
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
     "@types/react-dom": "18.2.7",
@@ -25,10 +32,7 @@
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.6",
-    "typescript": "5.1.6",
-    "@mui/material": "6.1.6",
-    "@emotion/styled": "11.13.0",
-    "@emotion/react": "11.13.3"
+    "typescript": "5.1.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.0.0",

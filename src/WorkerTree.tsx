@@ -1,6 +1,7 @@
 'use client';
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { useState } from 'react';
+import { WorkerCard } from './jux/components/WorkerCard';
 
 // Define the structure of a worker in our tree
 interface Worker {
@@ -11,38 +12,25 @@ interface Worker {
   subworkers: Worker[];
 }
 
-// Initial data structure
-const initialData: Worker = {
-  id: '1',
-  name: 'Tom',
-  email: 'tom@jux.io',
-  role: 'CEO',
-  subworkers: [],
-};
-
-// TODO: Create WorkerContext
-
-// TODO: Implement useWorkerTree custom hook
-
-// TODO: Implement useWorkerData custom hook
+// Implement useWorkerData custom hook
 const useWorkerData = () => {
-  const [workerTree, setWorkerTree] = useState<Worker>(initialData);
+  const [workerTree] = useState<Worker>({
+    id: '1',
+    name: 'Tom Nipravsky',
+    email: 'tom@jux.io',
+    role: 'CEO',
+    subworkers: [],
+  });
 
-  // TODO: Implement addSubworker function
-  // This function should add a new subworker to the specified worker
-  // It should validate the input (name: only letters, email: valid email format)
-
-  // TODO: Implement calculatePaycheck function
-  // This function should calculate the paycheck based on the number of subworkers in the tree
-
-  // return { workerTree, addSubworker, calculatePaycheck }
-  // return { workerTree, addSubworker, calculatePaycheck }
+  return { workerTree };
 };
 
-// TODO: Implement WorkerNode component
-// This component should render a worker and its subworkers
-// It should include a form to add a new subworker
-// It should display the worker's paycheck
+// Implement WorkerNode component
+const WorkerNode: React.FC<{ worker: Worker }> = React.memo(({ worker }) => {
+  return <WorkerCard></WorkerCard>;
+});
+
+WorkerNode.displayName = 'WorkerNode';
 
 // Main WorkerTree component
 export default function WorkerTree() {
@@ -51,7 +39,7 @@ export default function WorkerTree() {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Company Structure</h1>
-      {/* TODO: Render the worker tree here */}
+      <WorkerNode worker={workerData.workerTree} />
     </div>
   );
 }
